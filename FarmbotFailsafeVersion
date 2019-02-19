@@ -1,0 +1,53 @@
+import time, random, pyautogui
+
+p = pyautogui
+
+time.sleep(5) #Gives you time to prepare the game window
+
+def Move():
+    Direction = random.randint(1,4)
+    if Direction == 1:
+        p.press('w')
+        print("Move up")
+    if Direction == 2:
+        p.press('d')
+        print("Move right")
+    if Direction == 3:
+        p.press('s')
+        print("Move down")
+    if Direction == 4:
+        p.press('a')
+        print("Move left")
+
+
+def Click():
+    p.click(x=200,y=200)
+    print("Left Mouseclick")
+
+
+def main():
+    Move()
+    time.sleep(1)
+    Click()
+    time.sleep(2)
+    main()
+
+#python gets super unstable when you run it for a long time, sooo
+#i've found adding a failsafe like this extends the viable script runtime
+#by at least 5 times
+
+#yunno, before you get a stack overflow & your interpreter crashes
+#LOL
+
+def Failsafe():
+    try:
+        main()
+    except:
+        print("Error executing main func, retrying...")
+        Eternal = 0
+        Counter = 0
+        while Eternal < 1:
+            Counter = Counter + 1
+            print("Reboot attempt", Counter)
+            main()
+Failsafe()
