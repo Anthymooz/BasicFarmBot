@@ -1,22 +1,32 @@
-import time, random, pyautogui
+import time, random, sys, pyautogui
+
+sys.setrecursionlimit(696969) #hope python doesn't yeet itself bc of this lol
 
 p = pyautogui
 
-time.sleep(5) #Gives you time to prepare the game window
+time.sleep(15) #Gives you time to prepare the game window
 
 def Move():
     Direction = random.randint(1,4)
     if Direction == 1:
-        p.press('w')
+        p.keyDown('w')
+        time.sleep(1)
+        p.keyUp('w')
         print("Move up")
     if Direction == 2:
-        p.press('d')
+        p.keyDown('d')
+        time.sleep(1)
+        p.keyUp('w')
         print("Move right")
     if Direction == 3:
-        p.press('s')
+        p.keyDown('s')
+        time.sleep(1)
+        p.keyUp('w')
         print("Move down")
     if Direction == 4:
-        p.press('a')
+        p.keyDown('a')
+        time.sleep(1)
+        p.keyUp('w')
         print("Move left")
 
 
